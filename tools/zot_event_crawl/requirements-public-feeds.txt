@@ -1,0 +1,4 @@
+# Calendar parsing and recurrence/exception handling for --collect-public-feeds.
+# Website/contact discovery and the existing collector remain stdlib-only.
+icalendar>=6.3,<8
+recurring-ical-events>=3.8.2,<4

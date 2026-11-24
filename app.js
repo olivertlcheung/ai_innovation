@@ -363,7 +363,7 @@ function normalizeFeed(rows) {
       displayTags: displayTags.length ? displayTags : ['Event'], tags: displayTags, allDay: row.all_day === true,
       location: row.location || 'Location not provided', organizer: row.organizer_name || 'Organizer not provided',
       contact: safeContact(row.rsvp_url || '') || safeContact(row.source_url || ''),
-      source: source === 'zotspot' ? 'ZotSpot' : source, cost: row.cost || '',
+      source: new Map([['zotspot', 'ZotSpot'], ['club_calendar', 'Public calendar'], ['club_newsletter', 'Club newsletter'], ['club_website', 'Club website']]).get(source) || source, cost: row.cost || '',
       lastUpdated: typeof row.last_updated === 'string' ? row.last_updated : '', isEvent: true
     };
   }).filter(item => {

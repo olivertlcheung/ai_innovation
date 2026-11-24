@@ -8,6 +8,10 @@ The new default workflow uses Python 3.9+ standard libraries only. The original
 experimental API/pipeline scripts remain available and retain their own optional
 third-party dependencies.
 
+**Public calendars and newsletter archives:** see [PUBLIC_FEEDS.md](PUBLIC_FEEDS.md)
+for the reusable `--collect-public-feeds` tool, optional calendar dependencies,
+exact saved paths, sample results and the website import command.
+
 ## 1. Discover websites and contact links
 
 Run from the top-level `ai_innovation` folder:
@@ -64,8 +68,9 @@ events remain review candidates.
 When no structured event can be extracted, readable HTML text, page title and
 available description/caption metadata are preserved for later parsing. Ordinary
 page text and post publication dates are never turned into event dates by guess.
-Image-only flyers need a future OCR stage. JavaScript-only captions, recurring
-session inference, ICS parsing and free-text event extraction are not implemented.
+Image-only flyers need a future OCR stage. This older collector does not implement
+JavaScript-only captions, recurring session inference, ICS parsing or free-text
+event extraction. Use the separate public-feed workflow for explicit ICS schedules.
 
 `--include-social` attempts public social landing pages and a limited number of
 Instagram post links actually present in those pages. It does not log in, bypass

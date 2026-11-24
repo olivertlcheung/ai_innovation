@@ -68,3 +68,5 @@ htmlcov/
 # Generated source discovery and collection snapshots (not application source)
 data/clubs/club_sources.json
 data/clubs/club_discovery_report.json
+data/clubs/club_public_sources.json
+data/output/public_feeds/

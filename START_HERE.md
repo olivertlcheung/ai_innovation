@@ -2,7 +2,8 @@
 
 This folder contains the full ZotLife website, upgraded UCI crawler, saved data,
 and `.git` history. Keep the hidden `.git` folder when moving the project.
-You do not need a GitHub account. Nothing was pushed or published.
+You do not need a GitHub account to run the ZIP locally. Publishing a GitHub
+branch and deploying the website are separate actions; see Git for branch status.
 
 ## Open the website
 
@@ -18,6 +19,8 @@ Open http://127.0.0.1:8765/. See `README.md` for website details.
 
 Code and all crawler data: `tools/zot_event_crawl/`.
 Read `tools/zot_event_crawl/README.md` for discovery, event collection and publishing.
+Read `tools/zot_event_crawl/PUBLIC_FEEDS.md` for public calendar/newsletter
+collection, saved issue text, review candidates and website import commands.
 
 Main result files:
 
@@ -33,13 +36,14 @@ The parsed events file is therefore empty; raw text is available for later parsi
 
 ## Local Git
 
-Current branch: `feature/uci-event-feed`.
+Public calendar/newsletter branch: `feature/public-calendars-newsletters`,
+based on the newer `origin/main`, including your team's resource page updates.
 
 ```sh
 git status
 git log --oneline
 ```
 
-The `origin` URL still records the source repository, MaghyC/ai_innovation.
+The `origin` URL is https://github.com/AI-Innovation-2026-Fall-Group-8/ai_innovation.git.
 You can use local commits without connecting to it. Generated crawler output is
 ignored by Git but included in this complete ZIP alongside the source and history.

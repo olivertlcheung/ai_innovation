@@ -3,7 +3,8 @@
 ZotSpot Club Directory Crawler
 Fetches ALL UCI clubs/organizations from the club directory.
 Default: follow the public directory Website links and discover club contacts.
-Use --collect-events for public event/text collection, or --legacy-api for the
+Use --collect-public-feeds for calendars/newsletters, --collect-events for public
+event/text collection, or --legacy-api for the
 original experimental mobile_groups_list endpoint.
 """
 
@@ -322,6 +323,10 @@ def main():
     if '--legacy-api' in sys.argv:
         sys.argv.remove('--legacy-api')
         legacy_main()
+    elif '--collect-public-feeds' in sys.argv:
+        sys.argv.remove('--collect-public-feeds')
+        from public_feed_crawler import main as public_main
+        public_main()
     elif '--collect-events' in sys.argv:
         sys.argv.remove('--collect-events')
         from club_event_crawler import main as collect_main

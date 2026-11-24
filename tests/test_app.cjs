@@ -69,6 +69,19 @@ async function run() {
   assert.ok(allDay.nodes.cardGrid.innerHTML.includes('Dec 1, 2026 (all day)'));
   assert.ok(!allDay.nodes.cardGrid.innerHTML.includes('12:00 AM'));
 
+  const publicFeeds = await createApp(response([
+    {id:'cal',title:'Calendar workshop',source:'club_calendar',organizer_name:'Club A',categories:['Workshop'],tags:['Career'],start_datetime:'2026-11-17T18:00:00-08:00',end_datetime:'2026-11-17T19:00:00-08:00',rsvp_url:'https://club.example/calendar'},
+    {id:'news',title:'Newsletter talk',source:'club_newsletter',organizer_name:'Club B',categories:['Talk'],tags:['Research'],start_datetime:'2026-11-18T12:00:00-08:00',source_url:'https://club.example/newsletter/talk'}
+  ]));
+  assert.match(publicFeeds.nodes.cardGrid.innerHTML, /Public calendar/);
+  assert.match(publicFeeds.nodes.cardGrid.innerHTML, /Club newsletter/);
+  assert.match(publicFeeds.nodes.cardGrid.innerHTML, /View official event/);
+  publicFeeds.run("eventPeriod.value = 'tomorrow'; tagSearch.value = 'career'; render();");
+  assert.equal(publicFeeds.run('getFilteredListings()[0].title'), 'Calendar workshop');
+  publicFeeds.nodes.resetFiltersBtn.handlers.click();
+  publicFeeds.run("searchText = 'Club B'; eventCategoryFilter.value = 'Talk'; render();");
+  assert.equal(publicFeeds.run('getFilteredListings()[0].title'), 'Newsletter talk');
+
   // Tag input is independent from broad text search and intersects with category.
   categorized.run("searchText = ''; eventCategoryFilter.value = ''; tagSearch.value = 'network'; render();");
   assert.equal(categorized.run('getFilteredListings().length'), 1);

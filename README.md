@@ -1,5 +1,10 @@
 # ZotLife — UCI events from your crawler
 
+Repository: https://github.com/AI-Innovation-2026-Fall-Group-8/ai_innovation
+
+For the new public calendar/newsletter tools and the command that imports their
+valid events into this website, see [Public feeds](tools/zot_event_crawl/PUBLIC_FEEDS.md).
+
 The website loads `data/output/unified_events.json` over HTTP on page load.
 Events are not embedded in HTML. Your crawler remains a separate collection tool;
 its original folder has not been changed. The included feed contains 295 events

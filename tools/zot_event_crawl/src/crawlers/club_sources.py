@@ -289,13 +289,14 @@ def relevant_pages(html, url):
             continue
         same_site = other.hostname == parts.hostname and (not prefix or other.path.startswith(prefix))
         hub = any(host_matches(other.hostname or '', domain) for domain in HUBS)
-        if hub or (same_site and re.search(r'contact|about|event|calendar|connect|social', link['label'] + ' ' + other.path, re.I)):
+        if hub or (same_site and re.search(r'contact|about|event|calendar|connect|social|newsletter|announcement|archive', link['label'] + ' ' + other.path, re.I)):
             if not re.search(r'logout|signout|login|signup|register|wp-admin|\.pdf$', other.path,re.I):
                 result.append(link['url'])
     return list(dict.fromkeys(result))
 
 
 def discover(client, directory_url, output, max_clubs=None, max_directory_pages=3, pages_per_club=3, directory_html=None):
+    from public_sources import published_sources
     pending, visited, clubs, directory_report = deque([directory_url]), set(), {}, []
     while pending and len(visited) < max_directory_pages:
         url = pending.popleft()
@@ -336,6 +337,10 @@ def discover(client, directory_url, output, max_clubs=None, max_directory_pages=
                     evidence = prior.setdefault('also_found_on', [])
                     if link['found_on'] not in evidence:
                         evidence.append(link['found_on'])
+            existing_public = club.setdefault('public_sources', [])
+            for source in published_sources(page['text'], page['url']):
+                if not any(s['url'] == source['url'] and s['found_on'] == source['found_on'] for s in existing_public):
+                    existing_public.append(source)
             queue.extend(relevant_pages(page['text'],page['url']))
         direct = platform(club['website'])
         if direct:

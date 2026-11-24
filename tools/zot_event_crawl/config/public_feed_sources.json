@@ -1,0 +1,58 @@
+[
+  {
+    "id": "56556",
+    "name": "American Society of Mechanical Engineers at UCI",
+    "website": "https://sites.uci.edu/asmeuci/",
+    "organizer_type": "club",
+    "directory_url": "https://zotspot.uci.edu/club_signup",
+    "note": "The directory's asmeuci.com address did not resolve during the live check. This UCI-hosted club site publishes its calendar under Events.",
+    "public_sources": [
+      {
+        "url": "https://zotspot.uci.edu/ical/uci/ical_club_56556.ics",
+        "kind": "calendar_feed",
+        "found_on": "https://zotspot.uci.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+        "link_label": "Public group calendar",
+        "evidence": "published_link"
+      }
+    ]
+  },
+  {
+    "id": "33710",
+    "name": "ICS Student Council (ICSSC)",
+    "website": "https://studentcouncil.ics.uci.edu/",
+    "organizer_type": "club",
+    "directory_url": "https://zotspot.uci.edu/club_signup",
+    "public_sources": [
+      {
+        "url": "https://zotspot.uci.edu/ical/uci/ical_club_33710.ics",
+        "kind": "calendar_feed",
+        "found_on": "https://zotspot.uci.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+        "link_label": "Public group calendar",
+        "evidence": "published_link"
+      }
+    ]
+  },
+  {
+    "id": "uci-wen-public-health",
+    "name": "UC Irvine Wen Public Health",
+    "website": "https://publichealth.uci.edu/",
+    "organizer_type": "university",
+    "note": "University source, not a student club. Included to exercise a readable public newsletter archive.",
+    "public_sources": [
+      {
+        "url": "https://publichealth.uci.edu/news-and-media/events/",
+        "kind": "calendar_page",
+        "found_on": "https://publichealth.uci.edu/",
+        "link_label": "Events",
+        "evidence": "published_link"
+      },
+      {
+        "url": "https://publichealth.uci.edu/news-and-media/newsletters-publications/",
+        "kind": "newsletter_archive",
+        "found_on": "https://publichealth.uci.edu/",
+        "link_label": "Newsletters & Publications",
+        "evidence": "published_link"
+      }
+    ]
+  }
+]
