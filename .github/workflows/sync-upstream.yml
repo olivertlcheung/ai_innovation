@@ -1,0 +1,31 @@
+
+name: Sync Upstream
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Sync upstream
+        run: |
+          git remote add upstream https://github.com/MaghyC/ai_innovation.git
+          git fetch upstream main
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git merge --no-edit upstream/main
+          git push origin main
